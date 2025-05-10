@@ -33,6 +33,7 @@ public class Authcontroller {
 	public ResponseEntity<String> signupcontroller(@RequestBody Authmodal authmodal) {
         try {
             boolean isSuccess = authservice.signup(authmodal);
+            System.out.println("✅🎉😍🎉🤣😃"+authmodal);
             if (isSuccess) {
                 return ResponseEntity.ok("Signup successful");
             } else {

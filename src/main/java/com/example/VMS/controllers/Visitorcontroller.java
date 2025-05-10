@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,21 @@ private ResponseEntity<String> registervisitor(@RequestBody visitormodal visitor
     } catch (Exception e) {
         return ResponseEntity.status(500).body("Registration failed: " + e.getMessage());
     }
+}
+@PostMapping("/updatevisitor/{id}")
+private ResponseEntity<String> updatevisitor(@RequestBody visitormodal modal,@PathVariable String id){
+	try {
+		boolean issuccess=visitorservice.editvisitor(modal,id);
+		if(issuccess) {
+			return ResponseEntity.status(200).body("Edited successfully");
+		}
+		else {
+            return ResponseEntity.status(404).body("Visitor with ID " + id + " not found");
+		}
+	}
+	catch(Exception e) {
+		return ResponseEntity.status(500).body("Updation failed"+e.getMessage());
+	}
 }
 
 }

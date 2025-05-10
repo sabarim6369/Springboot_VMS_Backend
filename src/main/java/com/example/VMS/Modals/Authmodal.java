@@ -6,6 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.*;
 @Document
 public class Authmodal {
+	@Id
+	private String id;
 	private int age;
 	private String name;
 	private String address;
@@ -47,6 +49,12 @@ public class Authmodal {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public void setId(String id) {
+		this.id=id;
+	}
+	public String getId() {
+		return id;
 	}
 	
 	

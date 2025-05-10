@@ -6,6 +6,7 @@ import java.util.*;
 @Document
 public class visitormodal {
 	@Id
+	private String id;
 	private String name;
 	private int age;
 	private String number;
@@ -47,6 +48,12 @@ public class visitormodal {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
 	}
 
 
